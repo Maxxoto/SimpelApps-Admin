@@ -1,123 +1,149 @@
-body{
-
+body {
   margin: 0;
- 
   padding: 0;
- 
-  font-family: sans-serif;
- 
-  background: url(bg.jpg); 
- 
-  background-repeat: no-repeat;
- 
-  background-size: cover;
- 
- }
- 
- .box{
- 
+  font-family: 'Nunito', sans-serif;
+}
+
+/* Columns */
+.col-1 {
+  width: 8.33%;
+}
+.col-2 {
+  width: 16.66%;
+}
+.col-3 {
+  width: 25%;
+}
+.col-4 {
+  width: 33.33%;
+}
+.col-5 {
+  width: 41.66%;
+}
+.col-6 {
+  width: 50%;
+}
+.col-7 {
+  width: 58.33%;
+}
+.col-8 {
+  width: 66.66%;
+}
+.col-9 {
+  width: 75%;
+}
+.col-10 {
+  width: 83.33%;
+}
+.col-11 {
+  width: 91.66%;
+}
+.col-12 {
+  width: 100%;
+}
+
+/* End Columns */
+
+/* Row */
+.row::after {
+  content: '';
+  clear: both;
+  display: table;
+}
+/* End Row */
+
+.box {
   width: 300px;
- 
+
   padding: 40px;
- 
+
   position: absolute;
- 
+
   top: 50%;
- 
+
   left: 50%;
- 
-  transform: translate(-50%,-50%);
- 
-  background: #191919;
- 
+
+  transform: translate(-50%, -50%);
+
+  background: #ffffff;
+
   text-align: center;
- 
- }
- 
- .box h1{
- 
-  color: white;
- 
+  box-shadow: 5px 5px 10px #4e4e4e;
+}
+
+.box h1 {
+  color: #4e4e4e;
+
   text-transform: uppercase;
- 
+
   font-weight: 500;
- 
- }
- 
- .box input[type = "text"], .box input[type = "password"]{
- 
+}
+
+.box input[type='text'],
+.box input[type='password'] {
   border: 0;
- 
+
   background: none;
- 
+
   display: block;
- 
+
   margin: 20px auto;
- 
+
   text-align: center;
- 
+
   border: 2px solid #3498db;
- 
+
   padding: 14px 10px;
- 
+
   width: 200px;
- 
+
   outline: none;
- 
+
   color: white;
- 
+
   border-radius: 24px;
- 
+
   transition: 0.25s;
- 
- }
- 
- .box input[type = "text"]:focus,.box input[type = "password"]:focus{
- 
+}
+
+.box input[type='text']:focus,
+.box input[type='password']:focus {
   width: 280px;
- 
+
   border-color: #2ecc71;
- 
- }
- 
- 
- 
- .box input[type = "submit"]
- 
- {
- 
-   border: 0;
- 
+}
+
+.box input[type='submit'] {
+  border: 0;
+
   background: none;
- 
+
   display: block;
- 
+
   margin: 20px auto;
- 
+
   text-align: center;
- 
+
   border: 2px solid #2ecc71;
- 
+
   padding: 14px 40px;
- 
+
   outline: none;
- 
+
   color: white;
- 
+
   border-radius: 24px;
- 
+
   transition: 0.25s;
- 
+
   cursor: pointer;
- 
- }
- 
- 
- 
- .box input[type = "submit"]:hover
- 
- {
- 
+}
+
+.box input[type='submit']:hover {
   background: #2ecc71;
- 
- }
+}
+
+.image-dinas {
+  width: 100%;
+  height: auto;
+}
