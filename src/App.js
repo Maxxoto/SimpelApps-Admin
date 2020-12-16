@@ -14,7 +14,7 @@ const loading = (
 );
 
 // Containers
-// const MainLayout = React.lazy(() => import('./components/TheLayout'));
+// const MainLayout = React.lazy(() => import('./components/MainLayout'));
 
 // Pages
 // const Login = React.lazy(() => import('./pages/Login'));
