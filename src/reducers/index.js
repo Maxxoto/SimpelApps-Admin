@@ -1,26 +1,19 @@
 import { combineReducers } from 'redux';
 
-// Import reducer
-// import {authReducer} from './auth.reducers';
+import { authReducer } from './auth.reducers';
+// Reducer
 
-// Import constant
-// import {authConstants} from '../constants';
+// Constants
+import { authConstants } from '../constants';
 
-const appReducer = combineReducers({
-  //   authReducer,
-});
+const appReducer = combineReducers({ authReducer });
+
 const rootReducer = (state, action) => {
-  //   if (action.type === authConstants.LOGOUT) {
-  //     const {
-  // List state reducer yang akan direset ketika logout
-  //   authReducer,
-  // } = state;
+  if (action.type === authConstants.LOGOUT) {
+    const { authReducer } = state;
 
-  // state = {
-  // Destructuring state
-  //   authReducer,
-  // };
-  //   }
+    state = { authReducer };
+  }
 
   return appReducer(state, action);
 };
