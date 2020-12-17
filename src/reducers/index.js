@@ -1,18 +1,18 @@
 import { combineReducers } from 'redux';
 
-import { authReducer } from './auth.reducers';
 // Reducer
-
+import { authReducer } from './auth.reducers';
+import { sidebarState } from './sidebar.reducers';
 // Constants
 import { authConstants } from '../constants';
 
-const appReducer = combineReducers({ authReducer });
+const appReducer = combineReducers({ authReducer, sidebarState });
 
 const rootReducer = (state, action) => {
   if (action.type === authConstants.LOGOUT) {
-    const { authReducer } = state;
+    const { authReducer, sidebarState } = state;
 
-    state = { authReducer };
+    state = { authReducer, sidebarState };
   }
 
   return appReducer(state, action);

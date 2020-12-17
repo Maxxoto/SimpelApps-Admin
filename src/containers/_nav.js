@@ -1,36 +1,48 @@
-import React from 'react'
-import CIcon from '@coreui/icons-react'
+import React from 'react';
+import CIcon from '@coreui/icons-react';
 
-const _nav =  [
+const _nav = [
   {
     _tag: 'CSidebarNavItem',
     name: 'Dashboard',
     to: '/dashboard',
-    icon: <CIcon name="cil-speedometer" customClasses="c-sidebar-nav-icon"/>,
-    badge: {
-      color: 'info',
-      text: 'NEW',
-    }
+    icon: <CIcon name='cil-speedometer' customClasses='c-sidebar-nav-icon' />,
+    // badge: {
+    //   color: 'info',
+    //   text: 'NEW',
+    // },
   },
   {
     _tag: 'CSidebarNavTitle',
-    _children: ['Theme']
+    _children: ['SimpleApps Panel'],
   },
   {
     _tag: 'CSidebarNavItem',
-    name: 'Colors',
-    to: '/theme/colors',
-    icon: 'cil-drop',
+    name: 'Data Distribusi',
+    to: '/distribusi',
+    icon: 'cil-map',
   },
   {
     _tag: 'CSidebarNavItem',
-    name: 'Typography',
-    to: '/theme/typography',
-    icon: 'cil-pencil',
+    name: 'Data Sampel',
+    to: '/sampel',
+    icon: 'cil-magnifying-glass',
   },
   {
     _tag: 'CSidebarNavTitle',
-    _children: ['Components']
+    _children: ['Settings'],
+  },
+  {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Data User',
+    route: '/settings/users',
+    icon: 'cil-user',
+  },
+  {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Pengaturan',
+    route: '/settings/profile',
+    icon: 'cil-settings',
   },
   {
     _tag: 'CSidebarNavDropdown',
@@ -145,41 +157,20 @@ const _nav =  [
         _tag: 'CSidebarNavItem',
         name: 'Dropdowns',
         to: '/buttons/button-dropdowns',
-      }
+      },
     ],
   },
   {
     _tag: 'CSidebarNavItem',
     name: 'Charts',
     to: '/charts',
-    icon: 'cil-chart-pie'
+    icon: 'cil-chart-pie',
   },
   {
-    _tag: 'CSidebarNavDropdown',
+    _tag: 'CSidebarNavItem',
     name: 'Icons',
-    route: '/icons',
+    to: '/icons/coreui-icons',
     icon: 'cil-star',
-    _children: [
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'CoreUI Free',
-        to: '/icons/coreui-icons',
-        badge: {
-          color: 'success',
-          text: 'NEW',
-        },
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'CoreUI Flags',
-        to: '/icons/flags',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'CoreUI Brands',
-        to: '/icons/brands',
-      },
-    ],
   },
   {
     _tag: 'CSidebarNavDropdown',
@@ -205,108 +196,15 @@ const _nav =  [
       {
         _tag: 'CSidebarNavItem',
         name: 'Toaster',
-        to: '/notifications/toaster'
-      }
-    ]
-  },
-  {
-    _tag: 'CSidebarNavItem',
-    name: 'Widgets',
-    to: '/widgets',
-    icon: 'cil-calculator',
-    badge: {
-      color: 'info',
-      text: 'NEW',
-    },
-  },
-  {
-    _tag: 'CSidebarNavDivider'
-  },
-  {
-    _tag: 'CSidebarNavTitle',
-    _children: ['Extras'],
-  },
-  {
-    _tag: 'CSidebarNavDropdown',
-    name: 'Pages',
-    route: '/pages',
-    icon: 'cil-star',
-    _children: [
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Login',
-        to: '/login',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Register',
-        to: '/register',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Error 404',
-        to: '/404',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Error 500',
-        to: '/500',
+        to: '/notifications/toaster',
       },
     ],
   },
-  {
-    _tag: 'CSidebarNavItem',
-    name: 'Disabled',
-    icon: 'cil-ban',
-    badge: {
-      color: 'secondary',
-      text: 'NEW',
-    },
-    addLinkClass: 'c-disabled',
-    'disabled': true
-  },
-  {
-    _tag: 'CSidebarNavDivider',
-    className: 'm-2'
-  },
-  {
-    _tag: 'CSidebarNavTitle',
-    _children: ['Labels']
-  },
-  {
-    _tag: 'CSidebarNavItem',
-    name: 'Label danger',
-    to: '',
-    icon: {
-      name: 'cil-star',
-      className: 'text-danger'
-    },
-    label: true
-  },
-  {
-    _tag: 'CSidebarNavItem',
-    name: 'Label info',
-    to: '',
-    icon: {
-      name: 'cil-star',
-      className: 'text-info'
-    },
-    label: true
-  },
-  {
-    _tag: 'CSidebarNavItem',
-    name: 'Label warning',
-    to: '',
-    icon: {
-      name: 'cil-star',
-      className: 'text-warning'
-    },
-    label: true
-  },
-  {
-    _tag: 'CSidebarNavDivider',
-    className: 'm-2'
-  }
-]
 
-export default _nav
+  {
+    _tag: 'CSidebarNavDivider',
+    className: 'm-2',
+  },
+];
+
+export default _nav;
