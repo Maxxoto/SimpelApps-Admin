@@ -9,7 +9,7 @@ const loading = (
 )
 
 // Containers
-const TheLayout = React.lazy(() => import('./containers/TheLayout'));
+const TheLayout = React.lazy(() => import('./pages/TheLayout'));
 
 // Pages
 const Login = React.lazy(() => import('./views/pages/login/Login'));

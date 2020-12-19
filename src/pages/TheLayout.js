@@ -4,7 +4,7 @@ import {
   TheSidebar,
   TheFooter,
   TheHeader
-} from './index'
+} from '../components/index'
 
 const TheLayout = () => {
 
