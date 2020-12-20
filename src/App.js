@@ -4,7 +4,9 @@ import './scss/style.scss';
 
 import { connect } from 'react-redux';
 
-import { CAlert } from '@coreui/react';
+import { CAlert, CToaster, CToast, CToastBody, CSpinner } from '@coreui/react';
+
+import { Detector } from 'react-detect-offline';
 
 import * as actions from './actions';
 
@@ -36,13 +38,56 @@ class App extends Component {
     return (
       <>
         {this.props.alertReducer.message && (
-          <CAlert color={`${this.props.alertReducer.type}`} closeButton>
+          <CAlert
+            color={`${this.props.alertReducer.type}`}
+            style={{ textAlign: 'center', alignContent: 'center' }}
+            closeButton
+          >
             {this.props.alertReducer.message}
           </CAlert>
 
-          // style={{ textAlign: 'center', alignContent: 'center' }}
+          //
         )}
 
+        <Detector
+          render={({ online }) => (
+            <CToaster position='top-right' key={'toaster-state-network'}>
+              <CToast
+                key={'toast-state-network'}
+                show={online ? false : true}
+                fade={true}
+              >
+                <CToastBody
+                  className={
+                    online ? 'bg-success text-white' : 'bg-danger text-white'
+                  }
+                >
+                  {!online && (
+                    <>
+                      Oops, You're seem to be offline . <br />
+                      Reconnecting &nbsp;
+                      <CSpinner size='sm' />{' '}
+                    </>
+                  )}
+                </CToastBody>
+              </CToast>
+              <CToast
+                key={'toast-state-network'}
+                show={online ? true : false}
+                autohide={3000}
+                fade={true}
+              >
+                <CToastBody
+                  className={
+                    online ? 'bg-success text-white' : 'bg-danger text-white'
+                  }
+                >
+                  {online && <>Good , You're Online </>}
+                </CToastBody>
+              </CToast>
+            </CToaster>
+          )}
+        />
         <HashRouter>
           <React.Suspense fallback={loading}>
             <Switch>
