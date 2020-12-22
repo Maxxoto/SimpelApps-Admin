@@ -53,7 +53,6 @@ const fields = [
 const Distribusi = (props) => {
   useEffect(() => {
     props.getDistribusi();
-    console.log(props.data);
   }, []);
 
   return (

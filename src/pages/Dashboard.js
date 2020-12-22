@@ -1,28 +1,29 @@
-import React, { lazy } from 'react';
+import React, { lazy, useEffect } from 'react';
 import {
-  CBadge,
   CButton,
   CButtonGroup,
   CCard,
   CCardBody,
-  CCardFooter,
-  CCardHeader,
   CCol,
-  CProgress,
   CRow,
-  CCallout,
 } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
-
 import MainChartExample from '../views/charts/MainChartExample.js';
 
-const WidgetsDropdown = lazy(() => import('../views/widgets/WidgetsDropdown.js'));
-const WidgetsBrand = lazy(() => import('../views/widgets/WidgetsBrand.js'));
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
-const Dashboard = () => {
+const WidgetsDropdown = lazy(() =>
+  import('../views/widgets/WidgetsDropdown.js'),
+);
+
+const Dashboard = (props) => {
+  useEffect(() => {
+    props.getDistribusi();
+  }, []);
   return (
     <>
-      <WidgetsDropdown />
+      <WidgetsDropdown data={props.data ? props.data : []} />
       <CCard>
         <CCardBody>
           <CRow>
@@ -56,5 +57,9 @@ const Dashboard = () => {
     </>
   );
 };
+const mapStateToProps = (state) => {
+  const { distribusiReducer } = state;
+  return distribusiReducer;
+};
 
-export default Dashboard;
+export default connect(mapStateToProps, actions)(Dashboard);

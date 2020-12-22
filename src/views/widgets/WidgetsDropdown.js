@@ -10,16 +10,14 @@ import {
 } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
 import ChartLineSimple from '../charts/ChartLineSimple';
-import ChartBarSimple from '../charts/ChartBarSimple';
 
-const WidgetsDropdown = () => {
-  // render
+const WidgetsDropdown = (props) => {
   return (
     <CRow>
       <CCol sm='6' lg='3'>
         <CWidgetDropdown
           color='gradient-primary'
-          header='50'
+          header={props.data ? `${Object.keys(props.data).length}` : '0'}
           text='Data Pemeriksaan'
           footerSlot={
             <ChartLineSimple
