@@ -1,3 +1,3 @@
 export const urlConstants = {
-  BASE_URL: 'https://api.simpleapps.vercel.app',
+  BASE_URL: 'http://localhost:9000',
 };

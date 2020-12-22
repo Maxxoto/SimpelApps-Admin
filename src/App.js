@@ -50,43 +50,45 @@ class App extends Component {
         )}
 
         <Detector
-          render={({ online }) => (
-            <CToaster position='top-right' key={'toaster-state-network'}>
-              <CToast
-                key={'toast-state-network'}
-                show={online ? false : true}
-                fade={true}
-              >
-                <CToastBody
-                  className={
-                    online ? 'bg-success text-white' : 'bg-danger text-white'
-                  }
+          render={({ online }) => {
+            return (
+              <CToaster position='top-right' key={'toaster-state-network'}>
+                <CToast
+                  key={'toast-state-network'}
+                  show={online ? false : true}
+                  fade={true}
                 >
-                  {!online && (
-                    <>
-                      Oops, You're seem to be offline . <br />
-                      Reconnecting &nbsp;
-                      <CSpinner size='sm' />{' '}
-                    </>
-                  )}
-                </CToastBody>
-              </CToast>
-              <CToast
-                key={'toast-state-network'}
-                show={online ? true : false}
-                autohide={3000}
-                fade={true}
-              >
-                <CToastBody
-                  className={
-                    online ? 'bg-success text-white' : 'bg-danger text-white'
-                  }
+                  <CToastBody
+                    className={
+                      online ? 'bg-success text-white' : 'bg-danger text-white'
+                    }
+                  >
+                    {!online && (
+                      <>
+                        Oops, You're seem to be offline . <br />
+                        Reconnecting &nbsp;
+                        <CSpinner size='sm' />{' '}
+                      </>
+                    )}
+                  </CToastBody>
+                </CToast>
+                <CToast
+                  key={'toast-state-network-online'}
+                  show={online ? true : false}
+                  autohide={3000}
+                  fade={true}
                 >
-                  {online && <>Good , You're Online </>}
-                </CToastBody>
-              </CToast>
-            </CToaster>
-          )}
+                  <CToastBody
+                    className={
+                      online ? 'bg-success text-white' : 'bg-danger text-white'
+                    }
+                  >
+                    {online && <>Good , You're Online </>}
+                  </CToastBody>
+                </CToast>
+              </CToaster>
+            );
+          }}
         />
         <HashRouter>
           <React.Suspense fallback={loading}>

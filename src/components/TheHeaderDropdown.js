@@ -37,7 +37,7 @@ const TheHeaderDropdown = () => {
 
         <CDropdownItem divider className='pb-0 mb-0' />
         <CDropdownItem className='text-white bg-danger'>
-          <CIcon name='cil-door' className='mfe-2' />
+          {/* <CIcon name='cil-backspace' className='mfe-2' /> */}
           Logout
         </CDropdownItem>
       </CDropdownMenu>

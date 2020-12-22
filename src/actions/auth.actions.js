@@ -5,24 +5,18 @@ import { success, error } from './alert.actions';
 
 export const login = (data) => async (dispatch) => {
   try {
-    console.log('Request...');
     dispatch({ type: authConstants.LOGIN_REQUEST });
 
-    const res = await axios.post(
-      `${urlConstants.BASE_URL}/auth/local/superadmin`,
-      data,
-    );
+    const res = await axios.post(`${urlConstants.BASE_URL}/auth/login`, data);
 
     if (res) {
-      console.log('Completed...');
       localStorage.setItem('token', res.data.data.token);
       dispatch({ type: authConstants.LOGIN_SUCCESS, payload: res.data });
       dispatch(success(res.data.meta.message));
     }
   } catch (e) {
-    console.log('Error...');
-    dispatch({ type: authConstants.LOGIN_FAILURE, payload: error });
-    dispatch(error('Email atau password salah !'));
+    dispatch({ type: authConstants.LOGIN_FAILURE, payload: e });
+    dispatch(error(`Email atau password salah !`));
     // dispatch(alertActions.error(error));
   }
 };
