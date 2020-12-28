@@ -18,7 +18,7 @@ const _nav = [
   },
   {
     _tag: 'CSidebarNavItem',
-    name: 'Data Distribusi Pemeriksaan',
+    name: 'Data Pemeriksaan',
     to: '/distribusi',
     icon: 'cil-map',
   },

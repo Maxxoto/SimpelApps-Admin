@@ -41,7 +41,7 @@ const Sampel = (props) => {
 
   const actionSubmit = (data) => {
     data.varianPengujian = varian;
-    props.postSampel(data);
+    props.postSampel(data, props.history);
   };
 
   const handleReset = () => {

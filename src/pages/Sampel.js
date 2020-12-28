@@ -13,9 +13,14 @@ import {
   CModalHeader,
   CModalBody,
   CModalFooter,
+  CForm,
+  CFormGroup,
+  CLabel,
 } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
+import { Input, Select, InputNumber } from 'antd';
 
+import { useForm, Controller } from 'react-hook-form';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
@@ -54,8 +59,9 @@ const Sampel = (props) => {
     setModal(!modal);
   };
 
-  const handleClickVariant = (item) => {
-    console.log(item);
+  const handleDelete = () => {
+    toggle();
+    props.deleteSampel(item._id);
   };
 
   useEffect(() => {
@@ -87,6 +93,7 @@ const Sampel = (props) => {
                 fields={fields}
                 itemsPerPage={10}
                 pagination
+                key='data-sampel'
                 scopedSlots={{
                   status: (item) => (
                     <td>
@@ -123,21 +130,22 @@ const Sampel = (props) => {
 
                   action: (item) => (
                     <td>
-                      <Link to={`#`}>
-                        <CButton color={'success'} className='mr-1' size='sm'>
-                          <CIcon
-                            className='c-sidebar-brand-minimized'
-                            name={'cilPencil'}
-                            height={35}
-                          />
-                        </CButton>
-                      </Link>
+                      <CButton color={'success'} className='mr-1' size='sm'>
+                        <CIcon
+                          className='c-sidebar-brand-minimized'
+                          name={'cilPencil'}
+                          height={35}
+                        />
+                      </CButton>
 
                       <CButton
                         color={'danger'}
                         className='mr-1'
                         size='sm'
-                        onClick={() => console.log(item)}
+                        onClick={() => {
+                          setItem(item);
+                          toggle();
+                        }}
                       >
                         <CIcon
                           className='c-sidebar-brand-minimized'
@@ -151,13 +159,20 @@ const Sampel = (props) => {
               />
             </CCardBody>
           </CCard>
-          <CModal show={modal} onClose={toggle}>
-            <CModalHeader closeButton>Modal title</CModalHeader>
-            <CModalBody>Lorem ipsum dolor...</CModalBody>
+          <CModal id='modalDelete' show={modal} onClose={toggle}>
+            <CModalHeader closeButton>
+              Konfirmasi hapus data sampel
+            </CModalHeader>
+            <CModalBody>
+              Apakah anda yakin akan menghapus
+              <b> {item ? item.nama_sampel : ''}</b> ?
+            </CModalBody>
             <CModalFooter>
-              <CButton color='primary'>Do Something</CButton>{' '}
+              <CButton color='danger' onClick={() => handleDelete()}>
+                Hapus
+              </CButton>
               <CButton color='secondary' onClick={toggle}>
-                Cancel
+                Batal
               </CButton>
             </CModalFooter>
           </CModal>
