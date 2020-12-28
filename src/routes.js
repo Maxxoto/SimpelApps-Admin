@@ -33,12 +33,16 @@ const User = React.lazy(() => import('./views/users/User'));
 
 // Pages
 const Distribusi = React.lazy(() => import('./pages/Distribusi'));
+const Sampel = React.lazy(() => import('./pages/Sampel'));
+const SampelCreate = React.lazy(() => import('./pages/SampelCreate'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
 
   { path: '/distribusi', name: 'Distribusi', component: Distribusi },
+  { path: '/sampel', name: 'Sampel', component: Sampel, exact: true },
+  { path: '/sampel/create', name: 'Buat Sampel', component: SampelCreate },
   // { path: '/panel', name: 'Theme', component: Colors, exact: true },
 
   { path: '/base/forms', name: 'Forms', component: BasicForms },

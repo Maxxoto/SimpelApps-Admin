@@ -17,7 +17,10 @@ export const getDistribusi = () => async (dispatch) => {
       dispatch(success(res.data.meta.message));
     }
   } catch (e) {
+    const error_response = e.response
+      ? e.response.data.meta.message
+      : 'silahkan ulangi beberapa saat lagi atau menghubungi admin';
     dispatch({ type: distribusiConstants.GET_FAILURE, payload: e });
-    dispatch(error(`Terjadi kesalahan ! \n ${e.response.data.meta.message}`));
+    dispatch(error(`Terjadi kesalahan ! \n ${error_response}`));
   }
 };

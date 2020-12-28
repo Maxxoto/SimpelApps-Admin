@@ -17,7 +17,11 @@ const WidgetsDropdown = (props) => {
       <CCol sm='6' lg='3'>
         <CWidgetDropdown
           color='gradient-primary'
-          header={props.data ? `${Object.keys(props.data).length}` : '0'}
+          header={
+            props.dataDistribusi
+              ? `${Object.keys(props.dataDistribusi).length}`
+              : '0'
+          }
           text='Data Pemeriksaan'
           footerSlot={
             <ChartLineSimple
@@ -36,7 +40,7 @@ const WidgetsDropdown = (props) => {
               <CIcon name='cil-settings' />
             </CDropdownToggle>
             <CDropdownMenu className='pt-0 pb-0' placement='bottom-end'>
-              <CDropdownItem>Lihat data</CDropdownItem>
+              <CDropdownItem to='/distribusi'>Lihat data</CDropdownItem>
             </CDropdownMenu>
           </CDropdown>
         </CWidgetDropdown>
@@ -45,7 +49,9 @@ const WidgetsDropdown = (props) => {
       <CCol sm='6' lg='3'>
         <CWidgetDropdown
           color='gradient-warning'
-          header='9.823'
+          header={
+            props.dataSampel ? `${Object.keys(props.dataSampel).length}` : '0'
+          }
           text='Data Sampel'
           footerSlot={
             <ChartLineSimple
@@ -65,7 +71,7 @@ const WidgetsDropdown = (props) => {
               <CIcon name='cil-location-pin' />
             </CDropdownToggle>
             <CDropdownMenu className='pt-0 pb-0' placement='bottom-end'>
-              <CDropdownItem>Lihat data</CDropdownItem>
+              <CDropdownItem to='/sampel'>Lihat data</CDropdownItem>
             </CDropdownMenu>
           </CDropdown>
         </CWidgetDropdown>

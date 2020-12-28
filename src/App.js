@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import './scss/style.scss';
+import 'antd/dist/antd.css';
 
 import { connect } from 'react-redux';
 

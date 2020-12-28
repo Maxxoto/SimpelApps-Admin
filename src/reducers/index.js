@@ -5,6 +5,7 @@ import { authReducer } from './auth.reducers';
 import { sidebarState } from './sidebar.reducers';
 import { alertReducer } from './alert.reducers';
 import { distribusiReducer } from './distribusi.reducers';
+import { sampelReducer } from './sampel.reducers';
 // Constants
 import { authConstants } from '../constants';
 
@@ -13,6 +14,7 @@ const appReducer = combineReducers({
   sidebarState,
   alertReducer,
   distribusiReducer,
+  sampelReducer,
 });
 
 const rootReducer = (state, action) => {
@@ -22,9 +24,16 @@ const rootReducer = (state, action) => {
       sidebarState,
       alertReducer,
       distribusiReducer,
+      sampelReducer,
     } = state;
 
-    state = { authReducer, sidebarState, alertReducer, distribusiReducer };
+    state = {
+      authReducer,
+      sidebarState,
+      alertReducer,
+      distribusiReducer,
+      sampelReducer,
+    };
   }
 
   return appReducer(state, action);

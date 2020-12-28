@@ -1,3 +1,4 @@
+/* eslint-disable no-sequences */
 import React, { lazy, useEffect } from 'react';
 import {
   CButton,
@@ -20,10 +21,16 @@ const WidgetsDropdown = lazy(() =>
 const Dashboard = (props) => {
   useEffect(() => {
     props.getDistribusi();
+    props.getSampel();
   }, []);
   return (
     <>
-      <WidgetsDropdown data={props.data ? props.data : []} />
+      <WidgetsDropdown
+        dataDistribusi={
+          props.dataDistribusi.data ? props.dataDistribusi.data : []
+        }
+        dataSampel={props.dataSampel.data ? props.dataSampel.data : []}
+      />
       <CCard>
         <CCardBody>
           <CRow>
@@ -58,8 +65,8 @@ const Dashboard = (props) => {
   );
 };
 const mapStateToProps = (state) => {
-  const { distribusiReducer } = state;
-  return distribusiReducer;
+  const { distribusiReducer, sampelReducer } = state;
+  return { dataDistribusi: distribusiReducer, dataSampel: sampelReducer };
 };
 
 export default connect(mapStateToProps, actions)(Dashboard);
