@@ -68,3 +68,27 @@ export const deleteSampel = (id) => async (dispatch) => {
     dispatch(error(`Terjadi kesalahan ! \n ${error_response}`));
   }
 };
+
+export const updateSampel = (id,data, history) => async (dispatch) => {
+  try {
+    dispatch({ type: sampelConstants.PUT_REQUEST });
+    console.log(data);
+    const res = await axios.put(
+      `${urlConstants.BASE_URL}/samples/${id}`,
+      data,
+      config(),
+    );
+
+    if (res) {
+      dispatch({ type: sampelConstants.PUT_SUCCESS });
+      dispatch(success(res.data.meta.message));
+      history.push('/sampel');
+    }
+  } catch (e) {
+    const error_response = e.response
+      ? e.response.data.meta.message
+      : 'silahkan ulangi beberapa saat lagi atau menghubungi admin';
+    dispatch({ type: sampelConstants.PUT_FAILURE, payload: e });
+    dispatch(error(`Terjadi kesalahan ! \n ${error_response}`));
+  }
+};

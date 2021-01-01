@@ -32,9 +32,13 @@ const Users = React.lazy(() => import('./views/users/Users'));
 const User = React.lazy(() => import('./views/users/User'));
 
 // Pages
+// Home
 const Distribusi = React.lazy(() => import('./pages/Distribusi'));
+
+// Sampel
 const Sampel = React.lazy(() => import('./pages/Sampel'));
 const SampelCreate = React.lazy(() => import('./pages/SampelCreate'));
+const SampelEdit = React.lazy(() => import('./pages/SampelEdit'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -43,6 +47,7 @@ const routes = [
   { path: '/distribusi', name: 'Distribusi', component: Distribusi },
   { path: '/sampel', name: 'Sampel', component: Sampel, exact: true },
   { path: '/sampel/create', name: 'Buat Sampel', component: SampelCreate },
+  { path: '/sampel/:id', name: 'Buat Sampel', component: SampelEdit },
   // { path: '/panel', name: 'Theme', component: Colors, exact: true },
 
   { path: '/base/forms', name: 'Forms', component: BasicForms },

@@ -19,7 +19,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
-const Sampel = (props) => {
+const SampelCreate = (props) => {
   const { control, errors, handleSubmit, reset } = useForm();
   const [varian, setVarian] = useState([{ nama_pengujian: '', harga: '' }]);
 
@@ -172,8 +172,4 @@ const Sampel = (props) => {
   );
 };
 
-export default connect(null, actions)(Sampel);
-
-function onChange(value) {
-  console.log('changed', value);
-}
+export default connect(null, actions)(SampelCreate);

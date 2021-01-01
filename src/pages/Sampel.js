@@ -130,13 +130,17 @@ const Sampel = (props) => {
 
                   action: (item) => (
                     <td>
-                      <CButton color={'success'} className='mr-1' size='sm'>
-                        <CIcon
-                          className='c-sidebar-brand-minimized'
-                          name={'cilPencil'}
-                          height={35}
-                        />
-                      </CButton>
+                      <Link
+                        to={{ pathname: `/sampel/${item._id}`, data: item }}
+                      >
+                        <CButton color={'success'} className='mr-1' size='sm'>
+                          <CIcon
+                            className='c-sidebar-brand-minimized'
+                            name={'cilPencil'}
+                            height={35}
+                          />
+                        </CButton>
+                      </Link>
 
                       <CButton
                         color={'danger'}
