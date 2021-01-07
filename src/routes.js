@@ -18,6 +18,10 @@ const Sampel = React.lazy(() => import('./pages/Sampel'));
 const SampelCreate = React.lazy(() => import('./pages/SampelCreate'));
 const SampelEdit = React.lazy(() => import('./pages/SampelEdit'));
 
+// Invoice
+const Invoice = React.lazy(() => import('./pages/Invoice'));
+const InvoiceEdit = React.lazy(() => import('./pages/InvoiceEdit'));
+
 const routes = [
   { path: '/', exact: true, name: 'Home' },
 
@@ -38,7 +42,10 @@ const routes = [
 
   { path: '/sampel', name: 'Sampel', component: Sampel, exact: true },
   { path: '/sampel/create', name: 'Buat Sampel', component: SampelCreate },
-  { path: '/sampel/:id', name: 'Buat Sampel', component: SampelEdit },
+  { path: '/sampel/:id', name: 'Update Sampel', component: SampelEdit },
+
+  { path: '/invoices', name: 'Invoice', component: Invoice, exact: true },
+  { path: '/invoices/:id', name: 'Update', component: InvoiceEdit },
   // { path: '/panel', name: 'Theme', component: Colors, exact: true },
   { path: '/icons', exact: true, name: 'Icons', component: CoreUIIcons },
   { path: '/icons/coreui-icons', name: 'CoreUI Icons', component: CoreUIIcons },

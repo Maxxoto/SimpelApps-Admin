@@ -6,6 +6,7 @@ import { sidebarState } from './sidebar.reducers';
 import { alertReducer } from './alert.reducers';
 import { distribusiReducer } from './distribusi.reducers';
 import { sampelReducer } from './sampel.reducers';
+import { invoiceReducer } from './invoice.reducers';
 // Constants
 import { authConstants } from '../constants';
 
@@ -15,6 +16,7 @@ const appReducer = combineReducers({
   alertReducer,
   distribusiReducer,
   sampelReducer,
+  invoiceReducer,
 });
 
 const rootReducer = (state, action) => {
@@ -25,6 +27,7 @@ const rootReducer = (state, action) => {
       alertReducer,
       distribusiReducer,
       sampelReducer,
+      invoiceReducer,
     } = state;
 
     state = {
@@ -33,6 +36,7 @@ const rootReducer = (state, action) => {
       alertReducer,
       distribusiReducer,
       sampelReducer,
+      invoiceReducer,
     };
   }
 
