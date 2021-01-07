@@ -18,9 +18,7 @@ import {
   CLabel,
 } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
-import { Input, Select, InputNumber } from 'antd';
 
-import { useForm, Controller } from 'react-hook-form';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 

@@ -29,6 +29,12 @@ const _nav = [
     icon: 'cil-magnifying-glass',
   },
   {
+    _tag: 'CSidebarNavItem',
+    name: 'Data Invoice',
+    to: '/invoices',
+    icon: 'cil-notes',
+  },
+  {
     _tag: 'CSidebarNavTitle',
     _children: ['Settings'],
   },
@@ -45,62 +51,10 @@ const _nav = [
     icon: 'cil-settings',
   },
   {
-    _tag: 'CSidebarNavDropdown',
-    name: 'Base',
-    route: '/base',
-    icon: 'cil-puzzle',
-    _children: [
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Forms',
-        to: '/base/forms',
-      },
-    ],
-  },
-  {
-    _tag: 'CSidebarNavItem',
-    name: 'Charts',
-    to: '/charts',
-    icon: 'cil-chart-pie',
-  },
-  {
     _tag: 'CSidebarNavItem',
     name: 'Icons',
     to: '/icons/coreui-icons',
     icon: 'cil-star',
-  },
-  {
-    _tag: 'CSidebarNavDropdown',
-    name: 'Notifications',
-    route: '/notifications',
-    icon: 'cil-bell',
-    _children: [
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Alerts',
-        to: '/notifications/alerts',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Badges',
-        to: '/notifications/badges',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Modal',
-        to: '/notifications/modals',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Toaster',
-        to: '/notifications/toaster',
-      },
-    ],
-  },
-
-  {
-    _tag: 'CSidebarNavDivider',
-    className: 'm-2',
   },
 ];
 

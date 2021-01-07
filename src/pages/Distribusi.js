@@ -9,6 +9,10 @@ import {
   CDataTable,
   CRow,
   CButton,
+  CModal,
+  CModalBody,
+  CModalHeader,
+  CModalFooter,
 } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
 
@@ -18,13 +22,13 @@ import * as actions from '../actions';
 const getBadge = (status) => {
   switch (status) {
     case 'selesai':
-      return 'success';
+      return 'success text-white';
     case 'proses':
-      return 'warning';
+      return 'warning text-white';
     case 'pending':
-      return 'secondary';
+      return 'danger text-white';
     default:
-      return 'secondary';
+      return 'danger text-white';
   }
 };
 const fields = [
@@ -51,6 +55,22 @@ const fields = [
 ];
 
 const Distribusi = (props) => {
+  const [modal, setModal] = useState(false);
+  const [item, setItem] = useState();
+
+  const toggle = () => {
+    setModal(!modal);
+  };
+
+  const handleDelete = () => {
+    toggle();
+    props.deleteDistribusi(item._id);
+  };
+
+  useEffect(() => {
+    props.getDistribusi();
+  }, []);
+
   useEffect(() => {
     props.getDistribusi();
   }, []);
@@ -59,21 +79,8 @@ const Distribusi = (props) => {
     <>
       <CRow>
         <CCol xs='12' lg='12'>
-          <CButton
-            color={'primary'}
-            className='mb-1'
-            size='md'
-            onClick={() => console.log('Clicking')}
-          >
-            <CIcon
-              className='c-sidebar-brand-minimized'
-              name={'cil-pencil'}
-              height={35}
-            />
-            &nbsp;Tambah Data Distribusi
-          </CButton>
           <CCard>
-            <CCardHeader>Data Distribusi</CCardHeader>
+            <CCardHeader>Data Distribusi Pemeriksaan</CCardHeader>
             <CCardBody>
               <CDataTable
                 items={props.data ? props.data : null}
@@ -94,9 +101,29 @@ const Distribusi = (props) => {
                       </CBadge>
                     </td>
                   ),
+                  _userID: (item) => (
+                    <td>
+                      {item._userID
+                        ? item._userID.nama_lengkap
+                          ? item._userID.nama_lengkap
+                          : ''
+                        : ''}
+                    </td>
+                  ),
+                  _invoiceID: (item) => (
+                    <td>
+                      {item._invoiceID
+                        ? item._invoiceID.invoice_code
+                          ? item._invoiceID.invoice_code
+                          : ''
+                        : ''}
+                    </td>
+                  ),
                   action: (item) => (
                     <td>
-                      <Link to={`#`}>
+                      <Link
+                        to={{ pathname: `/distribusi/${item._id}`, data: item }}
+                      >
                         <CButton color={'success'} className='mr-1' size='sm'>
                           <CIcon
                             className='c-sidebar-brand-minimized'
@@ -110,7 +137,10 @@ const Distribusi = (props) => {
                         color={'danger'}
                         className='mr-1'
                         size='sm'
-                        onClick={() => console.log(item)}
+                        onClick={() => {
+                          setItem(item);
+                          toggle();
+                        }}
                       >
                         <CIcon
                           className='c-sidebar-brand-minimized'
@@ -124,6 +154,23 @@ const Distribusi = (props) => {
               />
             </CCardBody>
           </CCard>
+          <CModal id='modalDelete' show={modal} onClose={toggle}>
+            <CModalHeader closeButton>
+              Konfirmasi hapus data pemeriksaan
+            </CModalHeader>
+            <CModalBody>
+              Apakah anda yakin akan menghapus
+              <b> {item ? item._userID.nama_lengkap : ''}</b> ?
+            </CModalBody>
+            <CModalFooter>
+              <CButton color='danger' onClick={() => handleDelete()}>
+                Hapus
+              </CButton>
+              <CButton color='secondary' onClick={toggle}>
+                Batal
+              </CButton>
+            </CModalFooter>
+          </CModal>
         </CCol>
       </CRow>
     </>

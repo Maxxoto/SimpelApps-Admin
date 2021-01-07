@@ -69,10 +69,9 @@ export const deleteSampel = (id) => async (dispatch) => {
   }
 };
 
-export const updateSampel = (id,data, history) => async (dispatch) => {
+export const updateSampel = (id, data, history) => async (dispatch) => {
   try {
     dispatch({ type: sampelConstants.PUT_REQUEST });
-    console.log(data);
     const res = await axios.put(
       `${urlConstants.BASE_URL}/samples/${id}`,
       data,
