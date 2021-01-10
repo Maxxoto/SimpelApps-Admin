@@ -1,11 +1,5 @@
 import React from 'react';
 
-const CoreUIIcons = React.lazy(() =>
-  import('./views/icons/coreui-icons/CoreUIIcons'),
-);
-const Flags = React.lazy(() => import('./views/icons/flags/Flags'));
-const Brands = React.lazy(() => import('./views/icons/brands/Brands'));
-
 // Dashboard
 const Dashboard = React.lazy(() => import('./pages/Dashboard'));
 
@@ -46,11 +40,6 @@ const routes = [
 
   { path: '/invoices', name: 'Invoice', component: Invoice, exact: true },
   { path: '/invoices/:id', name: 'Update', component: InvoiceEdit },
-  // { path: '/panel', name: 'Theme', component: Colors, exact: true },
-  { path: '/icons', exact: true, name: 'Icons', component: CoreUIIcons },
-  { path: '/icons/coreui-icons', name: 'CoreUI Icons', component: CoreUIIcons },
-  { path: '/icons/flags', name: 'Flags', component: Flags },
-  { path: '/icons/brands', name: 'Brands', component: Brands },
 ];
 
 export default routes;

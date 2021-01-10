@@ -19,12 +19,7 @@ import routes from '../routes';
 // Constants
 import { sidebarConstants } from '../constants';
 
-import {
-  TheHeaderDropdown,
-  TheHeaderDropdownMssg,
-  TheHeaderDropdownNotif,
-  TheHeaderDropdownTasks,
-} from './index';
+import { TheHeaderDropdown } from './index';
 
 const TheHeader = () => {
   const dispatch = useDispatch();

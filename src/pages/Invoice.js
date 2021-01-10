@@ -24,7 +24,7 @@ import * as actions from '../actions';
 
 const getBadge = (status) => {
   switch (status) {
-    case 'selesai':
+    case 'lunas':
       return 'success';
     case 'proses':
       return 'warning';
@@ -95,8 +95,8 @@ const Invoice = (props) => {
                           ? 'Pending'
                           : item.status === 'proses'
                           ? 'Proses'
-                          : item.status === 'selesai'
-                          ? 'Selesai'
+                          : item.status === 'lunas'
+                          ? 'Lunas'
                           : '-'}
                       </CBadge>
                     </td>

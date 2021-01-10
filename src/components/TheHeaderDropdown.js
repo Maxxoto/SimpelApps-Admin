@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  CBadge,
   CDropdown,
   CDropdownItem,
   CDropdownMenu,
@@ -9,7 +8,10 @@ import {
 } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
 
-const TheHeaderDropdown = () => {
+import { connect } from 'react-redux';
+import * as actions from '../actions';
+
+const TheHeaderDropdown = (props) => {
   return (
     <CDropdown inNav className='c-header-nav-items mx-2 ' direction='down'>
       <CDropdownToggle className='c-header-nav-link' caret={false}>
@@ -25,7 +27,6 @@ const TheHeaderDropdown = () => {
         <CDropdownItem header tag='div' color='light' className='text-center'>
           <strong>Account</strong>
         </CDropdownItem>
-
         <CDropdownItem>
           <CIcon name='cil-user' className='mfe-2' />
           Profile
@@ -34,15 +35,13 @@ const TheHeaderDropdown = () => {
           <CIcon name='cil-settings' className='mfe-2' />
           Settings
         </CDropdownItem>
-
         <CDropdownItem divider className='pb-0 mb-0' />
-        <CDropdownItem className='text-white bg-danger'>
-          {/* <CIcon name='cil-backspace' className='mfe-2' /> */}
-          Logout
+        <CDropdownItem onClick={() => props.logout()} style={{ color: 'red' }}>
+          <span className='ml-2'>Logout</span>
         </CDropdownItem>
       </CDropdownMenu>
     </CDropdown>
   );
 };
 
-export default TheHeaderDropdown;
+export default connect(null, actions)(TheHeaderDropdown);

@@ -44,3 +44,26 @@ export const deleteInvoice = (id) => async (dispatch) => {
     dispatch(error(`Terjadi kesalahan ! \n ${error_response}`));
   }
 };
+
+export const updateInvoice = (id, data, history) => async (dispatch) => {
+  try {
+    dispatch({ type: invoiceConstants.PUT_REQUEST });
+    const res = await axios.put(
+      `${urlConstants.BASE_URL}/invoices/${id}`,
+      data,
+      config(),
+    );
+
+    if (res) {
+      dispatch({ type: invoiceConstants.PUT_SUCCESS });
+      dispatch(success(res.data.meta.message));
+      history.push('/invoices');
+    }
+  } catch (e) {
+    const error_response = e.response
+      ? e.response.data.meta.message
+      : 'silahkan ulangi beberapa saat lagi atau menghubungi admin';
+    dispatch({ type: invoiceConstants.PUT_FAILURE, payload: e });
+    dispatch(error(`Terjadi kesalahan ! \n ${error_response}`));
+  }
+};

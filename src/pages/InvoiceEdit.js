@@ -20,12 +20,10 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 const InvoiceEdit = (props) => {
-  const [item, setItem] = useState([]);
   const { control, errors, handleSubmit, reset } = useForm();
 
   const actionSubmit = (data) => {
-    console.log(data);
-    // props.updateInvoice(props.location.data._id, data, props.history);
+    props.updateInvoice(props.location.data._id, data, props.history);
   };
 
   const handleReset = () => {
@@ -37,10 +35,15 @@ const InvoiceEdit = (props) => {
   }, []);
 
   useEffect(() => {
-    props.location.data._itemID.map((val) => {
-      setItem([...item, val._id]);
-    });
-  }, [props.location.data._itemID]);
+    if (props.location.data) {
+      if (props.location.data._itemID) {
+        const newMap = props.location.data._itemID.map((val) => {
+          return val._id;
+        });
+        control.setValue('_itemID', newMap ? newMap : []);
+      }
+    }
+  }, [props.location.data]);
 
   return (
     <>
@@ -92,9 +95,9 @@ const InvoiceEdit = (props) => {
                       name='_itemID'
                       type='text'
                       control={control}
-                      readOnly={true}
-                      defaultValue={props.item ? props.item : []}
+                      defaultValue={[]}
                       rules={{ required: true }}
+                      style={{ width: '100%' }}
                     >
                       {props.data
                         ? props.data.map((data) => (
@@ -145,7 +148,7 @@ const InvoiceEdit = (props) => {
                         Proses
                       </Select.Option>
                       <Select.Option key='lunas' value='lunas'>
-                        Selesai
+                        Lunas
                       </Select.Option>
                     </Controller>
                     {errors.status ? (

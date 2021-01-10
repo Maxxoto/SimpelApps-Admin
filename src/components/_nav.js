@@ -50,12 +50,6 @@ const _nav = [
     route: '/settings/profile',
     icon: 'cil-settings',
   },
-  {
-    _tag: 'CSidebarNavItem',
-    name: 'Icons',
-    to: '/icons/coreui-icons',
-    icon: 'cil-star',
-  },
 ];
 
 export default _nav;

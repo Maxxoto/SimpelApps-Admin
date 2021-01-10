@@ -9,13 +9,13 @@ import {
   CRow,
 } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
-import MainChartExample from '../views/charts/MainChartExample.js';
+import MainChartExample from '../components/charts/MainChartExample.js';
 
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 const WidgetsDropdown = lazy(() =>
-  import('../views/widgets/WidgetsDropdown.js'),
+  import('../components/widgets/WidgetsDropdown.js'),
 );
 
 const Dashboard = (props) => {
