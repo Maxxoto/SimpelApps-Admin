@@ -85,17 +85,6 @@ const Login = (props) => {
                         defaultValue=''
                         rules={{ required: true }}
                       />
-
-                      {/* <CInput
-                        type="password"
-                        id="password"
-                        name="password"
-                        placeholder="Password"
-                        autoComplete="current-password"
-                        ref={register({
-                          required: true,
-                        })}
-                      /> */}
                     </CInputGroup>
 
                     <CRow>
