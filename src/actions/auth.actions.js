@@ -11,7 +11,6 @@ export const login = (data) => async (dispatch) => {
 
     if (res) {
       localStorage.setItem('token', res.data.data.token);
-      console.log(res.data.data);
       dispatch({ type: authConstants.LOGIN_SUCCESS, payload: res.data });
       dispatch(success(res.data.meta.message));
     }
