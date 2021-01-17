@@ -20,20 +20,14 @@ const TheLayout = (props) => {
     const token = localStorage.getItem('token');
 
     if (token) {
-      jwt.verify(
-        token,
-        process.env.NODE_ENV === 'production'
-          ? process.env.JWT_SECRET
-          : process.env.REACT_APP_JWT_SECRET,
-        (err, decoded) => {
-          if (err) {
-            localStorage.removeItem('token'); //Remove token if error to force user relogin the apps
-            props.history.push('/login');
-          } else {
-            props.history.push('/');
-          }
-        },
-      );
+      jwt.verify(token, process.env.REACT_APP_JWT_SECRET, (err, decoded) => {
+        if (err) {
+          localStorage.removeItem('token'); //Remove token if error to force user relogin the apps
+          props.history.push('/login');
+        } else {
+          props.history.push('/');
+        }
+      });
     } else {
       props.history.push('/login');
     }
