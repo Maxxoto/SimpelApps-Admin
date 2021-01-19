@@ -3,6 +3,10 @@
 You can use these apps by clicking link below
 [:rocket:Launch me](https://simpelapps-admin.vercel.app)
 
+Credential : 
+email : dani@gmail.com
+password : 12345
+
 ### Running at your own localhost
 
 - Clone this repository using this command
