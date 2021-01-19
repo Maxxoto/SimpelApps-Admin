@@ -1,7 +1,7 @@
 # SimpelApps Frontend
 
 You can use these apps by clicking link below
-[:rocket:Launch me](https://simpelapps-admin.vercel.app)
+[:rocket:Launch me](https://simpelapps-admin.vercel.app){:target="_blank"}
 
 Credential : 
 email : dani@gmail.com
