@@ -1,7 +1,7 @@
 # SimpelApps Frontend
 
 You can use these apps by clicking link below
-[:rocket:Launch me](https://admin.simpelapps.vercel.app)
+[:rocket:Launch me](https://simpelapps-admin.vercel.app)
 
 ### Running at your own localhost
 
